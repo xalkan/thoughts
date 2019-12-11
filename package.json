@@ -1,0 +1,14 @@
+{
+  "name": "thoughts",
+  "version": "1.0.0",
+  "description": "thoughts desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "xalkan",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^7.1.4"
+  }
+}
