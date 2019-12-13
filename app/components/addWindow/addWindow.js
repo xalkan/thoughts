@@ -8,7 +8,10 @@ const defaultProps = {
     width: 500,
     height: 250,
     title: 'New Thought',
-    show: false
+    show: false,
+    webPreferences: {
+        nodeIntegration: true
+    }
 }
 
 const template = 'addWindow.html';
