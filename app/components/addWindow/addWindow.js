@@ -32,6 +32,8 @@ class AddWindow extends BrowserWindow{
         this.once('ready-to-show', () => {
             this.show();
         });
+
+        this.removeMenu();
     }
     
 }
