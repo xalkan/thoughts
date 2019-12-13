@@ -11,8 +11,7 @@ const menuTemplate = [
                 label: 'Think something new',
                 accelerator: Command() + 'N',
                 click(){
-                    let addWindow = new AddWindow();
-
+                    AddNewWindow();
                 }
             },
             {
@@ -29,6 +28,14 @@ const menuTemplate = [
         ]
     }
 ];
+
+
+function AddNewWindow(){
+    let addWindow = new AddWindow();
+    addWindow.on('close', function(){
+        addWindow = null;
+    });
+}
 
 function Command(){
     return process.platform == 'darwin' ? 'Command+' : 'Ctrl+';

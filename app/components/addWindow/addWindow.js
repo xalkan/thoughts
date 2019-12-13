@@ -30,7 +30,7 @@ class AddWindow extends BrowserWindow{
             this.show();
         });
     }
-
+    
 }
 
 module.exports = AddWindow;
