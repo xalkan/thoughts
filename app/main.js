@@ -22,6 +22,10 @@ app.on('ready', () => {
 
     mainWindow.loadURL(mainWindowViewPath);
 
+    mainWindow.on('closed', function(){
+        app.quit();
+    });
+
     Menu.setApplicationMenu(menu);
 
 });
