@@ -25,6 +25,11 @@
         ipcRenderer.on('items:clear', function(e){
             ul.innerHTML = '';
         });
+
+        // remove a single item on double click
+        ul.addEventListener('dblclick', function(e){
+            e.target.remove();
+        });
     </script>
 </body>
 </html>
