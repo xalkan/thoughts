@@ -12,14 +12,19 @@
         const { ipcRenderer } = electron;
         const ul = document.querySelector('#list');
 
+        // add item
         ipcRenderer.on('item:add', function(e, thought){
             const li = document.createElement('li');
             const textNode = document.createTextNode(thought);
             li.appendChild(textNode);
             ul.appendChild(li);
-            
+
         });
 
+        // clear items
+        ipcRenderer.on('items:clear', function(e){
+            ul.innerHTML = '';
+        });
     </script>
 </body>
 </html>

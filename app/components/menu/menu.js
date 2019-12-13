@@ -1,5 +1,5 @@
 const electron = require('electron');
-const { app, Menu, ipcMain } = electron;
+const { app, Menu, ipcMain, BrowserWindow } = electron;
 
 const AddWindow = require('../addWindow/addWindow.js')
 
@@ -17,6 +17,9 @@ const menuTemplate = [
             {
                 label: 'Clear head',
                 accelerator: Command() + 'C',
+                click(){
+                    Clear();
+                }
             },
             {
                 label: 'Exit',
@@ -64,13 +67,18 @@ function AddNewWindow(){
     addWindow.on('close', function(){
         addWindow = null;
     });
-    
+
     ipcMain.on('item:close', function(e){
         const window = e.sender.getOwnerBrowserWindow();
         if(window != null){
             window.close();
         }
     })
+}
+
+function Clear(){
+    const window = BrowserWindow.getFocusedWindow();
+    window.webContents.send('items:clear');
 }
 
 function Command(){
