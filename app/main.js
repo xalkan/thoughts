@@ -2,12 +2,14 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-const { app, BrowserWindow} = electron;
+const menu = require('./components/menu/menu.js');
+
+const { app, BrowserWindow, Menu} = electron;
 
 let mainWindow;
 
 // listen for the app to be ready
-app.on('ready', function(){
+app.on('ready', () => {
     // create new window
     mainWindow = new BrowserWindow({});
 
@@ -19,5 +21,7 @@ app.on('ready', function(){
     });
 
     mainWindow.loadURL(mainWindowViewPath);
+
+    Menu.setApplicationMenu(menu);
 
 })

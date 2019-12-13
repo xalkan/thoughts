@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "thoughts desktop app",
   "main": "main.js",
+  "type": "module",
   "scripts": {
-    "start": "electron ."
+    "start": "electron app/main.js"
   },
   "author": "xalkan",
   "license": "MIT",
