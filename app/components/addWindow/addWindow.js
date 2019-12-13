@@ -6,7 +6,8 @@ const { BrowserWindow } = electron;
 
 const defaultProps = {
     width: 500,
-    height: 800,
+    height: 250,
+    title: 'New Thought',
     show: false
 }
 
