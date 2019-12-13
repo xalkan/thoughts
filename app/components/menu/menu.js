@@ -29,6 +29,9 @@ const menuTemplate = [
     }
 ];
 
+if(process.platform == 'darwin'){
+    menuTemplate.unshift({});
+}
 
 function AddNewWindow(){
     let addWindow = new AddWindow();
