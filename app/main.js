@@ -4,7 +4,7 @@ const path = require('path');
 
 const menu = require('./components/menu/menu.js');
 
-const { app, BrowserWindow, Menu} = electron;
+const { app, BrowserWindow, Menu, ipcMain } = electron;
 
 let mainWindow;
 
@@ -34,3 +34,7 @@ app.on('ready', () => {
 
 });
 
+ipcMain.on('item:add', function(e, thought){
+    // On getting text from addWindow renderer, send it to mainWindow renderer
+    mainWindow.webContents.send('item:add', thought);
+});

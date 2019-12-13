@@ -5,5 +5,21 @@
 </head>
 <body>
     <h1>Thoughts</h1>
+    <ul id='list'></ul>
+
+    <script type="module">
+        const electron = require('electron');
+        const { ipcRenderer } = electron;
+        const ul = document.querySelector('#list');
+
+        ipcRenderer.on('item:add', function(e, thought){
+            const li = document.createElement('li');
+            const textNode = document.createTextNode(thought);
+            li.appendChild(textNode);
+            ul.appendChild(li);
+            
+        });
+
+    </script>
 </body>
 </html>
