@@ -24,4 +24,5 @@ app.on('ready', () => {
 
     Menu.setApplicationMenu(menu);
 
-})
+});
+

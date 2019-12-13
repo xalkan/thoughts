@@ -1,6 +1,8 @@
 const electron = require('electron');
 const { app, Menu } = electron;
- 
+
+const AppWindow = require('../addWindow/addWindow.js')
+
 const menuTemplate = [
     {
         label: 'File',
@@ -8,7 +10,7 @@ const menuTemplate = [
             {
                 label: 'Think something new',
                 click(){
-                    CreateAddWindow();
+                    let appWindow = new AppWindow();
                 }
             },
             {
