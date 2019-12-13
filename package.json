@@ -1,15 +1,21 @@
 {
   "name": "thoughts",
   "version": "1.0.0",
-  "description": "thoughts desktop app",
+  "description": "electron thoughts app",
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "start": "electron app/main.js"
+    "start": "electron app/main.js",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-thoughts-app --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Thoughts App\"",    
+    "package-linux": "electron-packager . electron-thoughts-app --overwrite --asar=true --platform=linux --arch=x64 --prune=true --out=release-builds"
   },
   "author": "xalkan",
   "license": "MIT",
   "dependencies": {
     "electron": "^7.1.4"
+  },
+  "devDependencies": {
+    "electron-packager": "^14.1.1"
   }
 }
