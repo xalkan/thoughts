@@ -1,7 +1,7 @@
 const electron = require('electron');
 const { app, Menu } = electron;
 
-const AppWindow = require('../addWindow/addWindow.js')
+const AddWindow = require('../addWindow/addWindow.js')
 
 const menuTemplate = [
     {
@@ -11,7 +11,8 @@ const menuTemplate = [
                 label: 'Think something new',
                 accelerator: Command() + 'N',
                 click(){
-                    let appWindow = new AppWindow();
+                    let addWindow = new AddWindow();
+
                 }
             },
             {
