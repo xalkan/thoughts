@@ -16,7 +16,7 @@ const menuTemplate = [
             },
             {
                 label: 'Clear head',
-                accelerator: Command() + 'C',
+                accelerator: Command() + 'W',
                 click(){
                     Clear();
                 }
