@@ -1,5 +1,5 @@
 const electron = require('electron');
-const { app, Menu } = electron;
+const { app, Menu, ipcMain } = electron;
 
 const AddWindow = require('../addWindow/addWindow.js')
 
@@ -56,10 +56,21 @@ if(process.env.NODE_ENV != 'production'){
 
 
 function AddNewWindow(){
-    let addWindow = new AddWindow();
+    let addWindow;
+    
+    
+
+    addWindow = new AddWindow();
     addWindow.on('close', function(){
         addWindow = null;
     });
+    
+    ipcMain.on('item:close', function(e){
+        const window = e.sender.getOwnerBrowserWindow();
+        if(window != null){
+            window.close();
+        }
+    })
 }
 
 function Command(){

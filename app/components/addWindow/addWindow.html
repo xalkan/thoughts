@@ -24,6 +24,7 @@
             e.preventDefault();
             const thought = document.querySelector('#thought').value;
             ipcRenderer.send('item:add', thought);
+            ipcRenderer.send('item:close');
         }
     
     </script>
