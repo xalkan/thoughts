@@ -9,15 +9,18 @@ const menuTemplate = [
         submenu: [
             {
                 label: 'Think something new',
+                accelerator: Command() + 'N',
                 click(){
                     let appWindow = new AppWindow();
                 }
             },
             {
-                label: 'Clear head'
+                label: 'Clear head',
+                accelerator: Command() + 'C',
             },
             {
                 label: 'Exit',
+                accelerator: Command() + 'Q',
                 click(){
                     app.quit();
                 }
@@ -25,6 +28,10 @@ const menuTemplate = [
         ]
     }
 ];
+
+function Command(){
+    return process.platform == 'darwin' ? 'Command+' : 'Ctrl+';
+}
 
 const menu = Menu.buildFromTemplate(menuTemplate);
 
