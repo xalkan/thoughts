@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <title>Thoughts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
 <body>
-    <h1>New Thought!</h1>
-    <form>
-        <div>
-            <label>Another awesome idea</label>
-            <input type="text" id="thought" autofocus/>
-        </div>
-        <button type="submit">Add</button>
-    </form>
-
+   
+    <div class="container">
+        <form>
+            <div>
+                <label>Another awesome idea</label>
+                <input type="text" id="thought" autofocus/>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Add</button>
+        </form>            
+    </div>
+    
     <script type="module">
         const electon = require('electron');
         const { ipcRenderer } = electon;

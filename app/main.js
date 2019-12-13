@@ -6,6 +6,8 @@ const menu = require('./components/menu/menu.js');
 
 const { app, BrowserWindow, Menu, ipcMain } = electron;
 
+process.env.NODE_ENV = 'production';
+
 let mainWindow;
 
 // listen for the app to be ready

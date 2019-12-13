@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <title>Thoughts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-    <h1>Thoughts</h1>
+
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+            <a class="brand-logo center">
+                Thoughts
+            </a>
+        </div>
+    </nav>
+
     <ul id='list'></ul>
 
     <script type="module">
@@ -16,19 +25,27 @@
         ipcRenderer.on('item:add', function(e, thought){
             const li = document.createElement('li');
             const textNode = document.createTextNode(thought);
+            ul.className = 'collection'
+            li.className = 'collection-item';
             li.appendChild(textNode);
             ul.appendChild(li);
+            
 
         });
 
         // clear items
         ipcRenderer.on('items:clear', function(e){
             ul.innerHTML = '';
+            ul.className = '';
         });
 
         // remove a single item on double click
         ul.addEventListener('dblclick', function(e){
             e.target.remove();
+            
+            if(ul.children.length == 0){
+                ul.className = '';
+            }
         });
     </script>
 </body>
